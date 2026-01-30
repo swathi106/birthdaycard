@@ -1,0 +1,129 @@
+html,body{
+  margin:0;padding:0;height:100%;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* animated pastel background */
+.background{
+  position:fixed;inset:0;
+  background:linear-gradient(120deg,#ffd6e8,#fff8e1,#d7f9ff);
+  background-size:400% 400%;
+  animation:bgmove 15s ease infinite;
+  z-index:-2;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* central card */
+.card{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  background:rgba(255,255,255,0.85);
+  padding:25px 25px 40px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,120,160,0.3);
+  width:320px;
+}
+
+/* photo */
+.photo-frame{
+  width:180px;height:180px;margin:0 auto 15px;
+  border-radius:50%;overflow:hidden;
+  border:6px solid #fff;
+  box-shadow:0 0 25px rgba(255,100,150,0.3);
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover;}
+
+/* colorful animated text */
+h1{
+  background:linear-gradient(90deg,#ff4081,#ff8c00,#ffd600,#00e676,#40c4ff,#ff4081);
+  background-size:600% 600%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:colorShift 8s ease infinite;
+  margin:10px 0 8px;
+  font-size:1.6em;
+  font-weight:700;
+}
+@keyframes colorShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* colorful message paragraph */
+.msg{
+  font-size:1.05em;
+  margin:0 0 12px;
+  font-weight:500;
+  background:linear-gradient(90deg,#ff8a80,#ffb300,#00bfa5,#42a5f5,#ab47bc,#ff8a80);
+  background-size:400% 400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:rainbowText 10s ease infinite;
+}
+@keyframes rainbowText{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* from text */
+.from{
+  color:#666;
+  font-style:italic;
+  margin:0 0 16px;
+}
+
+/* button */
+#playBtn{
+  background:linear-gradient(90deg,#ff8eb2,#ffd1a6);
+  color:white;border:none;padding:10px 20px;
+  font-size:1em;border-radius:25px;cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  transition:transform .2s ease;
+}
+#playBtn:hover{transform:scale(1.05);}
+
+/* floating canvas layer */
+#decor{
+  position:fixed;inset:0;
+  z-index:-1;
+}
+/* slideshow photos */
+.photo-frame {
+  position: relative;
+  width: 200px;        /* slightly bigger circle */
+  height: 200px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #fff;
+  box-shadow: 0 0 25px rgba(255,100,150,0.3);
+  background: #fff;
+}
+
+/* make all photos fit perfectly inside */
+.photo-frame img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* ensures photo fills frame */
+  object-position: center;  /* keeps center of image visible */
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.photo-frame img.active {
+  opacity: 1;
+}
+
